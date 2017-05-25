@@ -1,0 +1,17 @@
+# My docker-compose.yml file
+
+# Apache HTTP Web Server
+httpd-proxy:
+  image: httpd-proxy
+  container_name: httpd-proxy
+  ports:
+  - "8080:8080"
+  - "8443:8443"
+  volumes:
+  - /opt/httpd/conf.d:/usr/local/apache2/conf.d
+  - /opt/httpd/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+  extra_hosts:
+  - mymaster.com:192.168.15.224
+  - myalfresco.com:192.168.15.224
+  - myshare.com:192.168.15.224
+
